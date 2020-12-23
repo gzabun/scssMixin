@@ -1,0 +1,7 @@
+@function remCalculation($pxValue) {
+    @return $pxValue / $globalRem+#{'rem'}
+}
+
+@function colorOpacity($color, $opacity:1) {
+    @return rgba($color, $opacity)
+}

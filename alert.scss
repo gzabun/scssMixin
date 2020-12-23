@@ -1,0 +1,35 @@
+.global-alert-area {
+    display: block;
+    width: fit-content;
+    .global-alert {
+        display: flex;
+        justify-content: space-between;
+        max-width: remCalculation(500);
+        padding: remCalculation(15) remCalculation(30);
+        box-sizing: border-box;
+        align-items: center;
+        border-radius: remCalculation(8);
+        span {
+            @include fontCalculation( $normal, 18, 27, $roboto, #fff);
+        }
+        i {
+            width: remCalculation(14);
+            height: remCalculation(14);
+            display: block;
+            background: url("/images-css/alert-close.svg") no-repeat center center;
+            margin-left: remCalculation(8);
+        }
+        $alert-type: ("default": #3E7BFA,
+        "primary": #0063F7,
+        "secondary": #00CFDE,
+        "success": #06C270,
+        "danger": #FF3B3B,
+        "warning": #FF8800);
+        @each $type-name,
+        $type-color in $alert-type {
+            &[type="#{$type-name}"] {
+                background: $type-color;
+            }
+        }
+    }
+}

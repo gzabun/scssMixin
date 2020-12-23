@@ -1,0 +1,24 @@
+$globalRem: 16;
+
+/* font-weight */
+
+$bold: 700;
+$semibold: 600;
+$medium: 500;
+$normal: 400;
+$light: 300;
+
+/* font-weight */
+
+
+/* font-family */
+
+$roboto: 'Roboto';
+$sourceSansPro: 'Source Sans Pro';
+$poppins: 'Poppins';
+
+/* font-family */
+
+@import 'function.scss';
+@import 'mixin.scss';
+@import 'alert.scss';
