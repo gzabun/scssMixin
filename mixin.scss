@@ -171,22 +171,17 @@
     background: linear-gradient($w3cColors);
 }
 
-@mixin orderContent {
-    width: calc(50% - #{remCalculation(20)});
-    margin-right: remCalculation(20);
-    display: flex;
-    justify-content: space-between;
-    @include fontCalculation($normal, 14, 24, $poppins, #272727);
-    margin-bottom: remCalculation(10);
-    &>span:first-child {
-        font-weight: $semibold;
-    }
-}
-
 @mixin truncate {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+@mixin dotTruncate($rowCount) {
+    display: -webkit-box;
+    -webkit-line-clamp: $rowCount;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 @mixin background($width, $height, $url, $horizantal:center, $vertical:center, $color:transparent, $display:inline-block) {
@@ -294,4 +289,9 @@
     color: $color;
     border-radius: remCalculation(8);
     background: $background;
+}
+
+@mixin borderImg($borderWidth, $url, $slice, $mode) {
+    border: $borderWidth solid transparent;
+    border-image: $url $slice $mode
 }
