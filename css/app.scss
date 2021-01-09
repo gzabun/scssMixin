@@ -1,0 +1,29 @@
+$globalRem: 16;
+
+/* font-weight */
+
+$bold: 700;
+$semibold: 600;
+$medium: 500;
+$normal: 400;
+$light: 300;
+$color_set: ("default": #3E7BFA, "primary": #0063F7, "secondary": #00CFDE, "success": #06C270, "danger": #FF3B3B, "warning": #FF8800);
+$color_set2: ("default": #fecf6d, "primary": #4091d7, "secondary": #99e9eb, "success": #2d884d, "danger": #b34045, "warning": #fecf6d);
+
+/* font-weight */
+
+
+/* font-family */
+
+$roboto: 'Roboto';
+$sourceSansPro: 'Source Sans Pro';
+$poppins: 'Poppins';
+
+/* font-family */
+
+@import 'function.scss';
+@import 'mixin.scss';
+@import 'alert.scss';
+@import 'button.scss';
+
+/*sass --watch css/app.scss css/app.css*/

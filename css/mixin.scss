@@ -184,6 +184,14 @@
     overflow: hidden;
 }
 
+@mixin lineClamp($line) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @mixin background($width, $height, $url, $horizantal:center, $vertical:center, $color:transparent, $display:inline-block) {
     @if type_of($horizantal)==number and type_of($vertical)==number {
         background: $color $url no-repeat $horizantal+#{'%'} $vertical+#{'%'};
@@ -294,4 +302,38 @@
 @mixin borderImg($borderWidth, $url, $slice, $mode) {
     border: $borderWidth solid transparent;
     border-image: $url $slice $mode
+}
+
+@mixin child-between($first, $last) {
+    &:nth-child(n+#{$first}):nth-child(-n+#{$last}) {
+        @content
+    }
+}
+
+@mixin closeIcon() {
+    .close {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        opacity: 0.6;
+        cursor: pointer;
+    }
+    .close:hover {
+        opacity: 1;
+    }
+    .close:before,
+    .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 16px;
+        width: 2px;
+        background-color: #333;
+    }
+    .close:before {
+        transform: rotate(45deg);
+    }
+    .close:after {
+        transform: rotate(-45deg);
+    }
 }

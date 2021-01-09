@@ -1,0 +1,203 @@
+@mixin animationFill($var) {
+    &[animation="fill"] {
+        &:hover {
+            box-shadow: inset 0 0 0 2em $var;
+            color: #fff;
+            transition: 1s;
+        }
+    }
+}
+
+@mixin animationClose($var) {
+    &[animation="close"] {
+        &:hover {
+            box-shadow: inset -4em 0 0 0 ($var), inset 4em 0 0 0 ($var);
+            transition: 1s;
+            color: #fff;
+        }
+    }
+}
+
+@mixin animationPulse($var) {
+    &[animation="pulse"] {
+        &:hover {
+            animation: pulse 1s infinite;
+            box-shadow: 0 0 5px 5px $var;
+            border-radius: 0;
+            color: $var;
+            background: #fff;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 transparent;
+            }
+        }
+    }
+}
+
+@mixin animationRaise($var) {
+    &[animation="raise"] {
+        &:hover {
+            box-shadow: 0 0.5em 0.5em -0.4em $var;
+            transform: translateY(-0.25em);
+        }
+    }
+}
+
+@mixin animationOffset($var) {
+    &[animation="offset"] {
+        &:hover {
+            box-shadow: 0 0 0 0 $var, inset 6em 3.5em 0 0 $var;
+            color: #fff;
+        }
+    }
+}
+
+button[animation="scale"] {
+    &:hover {
+        transform: scale(0.9);
+        transition: 0.5s;
+    }
+}
+
+button[animation="skew"] {
+    &:hover {
+        animation: skew 2s infinite;
+        @keyframes skew {
+            0% {
+                transform: skew(0, 0);
+            }
+            25% {
+                transform: skew(3deg, 3deg);
+            }
+            75% {
+                transform: skew(-6deg, -6deg);
+            }
+            100% {
+                transform: skew(0, 0);
+            }
+        }
+    }
+}
+
+button {
+    @each $button-name,
+    $button-type in $color-set2 {
+        &[type="#{$button-name}"] {
+            @include animationFill($button-type);
+            @include animationClose($button-type);
+            @include animationPulse($button-type);
+            @include animationRaise($button-type);
+            @include animationOffset($button-type);
+        }
+    }
+}
+
+.button-area {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    button[mode="default"] {
+        border-radius: remCalculation(4);
+        border: 0;
+        min-width: remCalculation(185);
+        max-width: remCalculation(185);
+        padding: remCalculation(13) 0;
+        text-align: center;
+        @include fontCalculation($semibold, 25, 32, $sourceSansPro, #fff);
+        width: 50%;
+        display: block;
+        background: transparent;
+        @each $button-name,
+        $button-type in $color-set {
+            &[type="#{$button-name}"] {
+                background: $button-type;
+                @include animationPulse($button-type);
+                &:hover {
+                    background: darken($button-type, 10);
+                }
+                &:active {
+                    background: darken($button-type, 30);
+                }
+            }
+        }
+    }
+    button[mode="oval"] {
+        border-radius: remCalculation(40);
+        border: 0;
+        min-width: remCalculation(200);
+        max-width: remCalculation(200);
+        padding: remCalculation(13) 0;
+        text-align: center;
+        @include fontCalculation($semibold, 25, 32, $sourceSansPro, #fff);
+        width: 50%;
+        display: block;
+        @each $button-name,
+        $button-type in $color-set2 {
+            &[type="#{$button-name}"] {
+                background: $button-type;
+                &:hover {
+                    background: darken($button-type, 10);
+                }
+                &:active {
+                    background: darken($button-type, 30);
+                }
+            }
+        }
+    }
+    button[mode="border"] {
+        border-radius: remCalculation(40);
+        border: 0;
+        min-width: remCalculation(200);
+        max-width: remCalculation(200);
+        padding: remCalculation(13) 0;
+        text-align: center;
+        @include fontCalculation($semibold, 25, 32, $sourceSansPro, #fff);
+        width: 50%;
+        display: block;
+        @each $button-name,
+        $button-type in $color-set2 {
+            &[type="#{$button-name}"] {
+                border: 2px solid $button-type;
+                color: $button-type;
+                background: transparent;
+                @include animationFill($button-type);
+                @include animationClose($button-type);
+                @include animationRaise($button-type);
+                &:hover {
+                    border: 2px solid darken($button-type, 10);
+                }
+                &:active {
+                    border: 2px solid darken($button-type, 30);
+                }
+            }
+        }
+    }
+    button[mode="offset"] {
+        border-radius: remCalculation(4);
+        border: 0;
+        min-width: remCalculation(185);
+        max-width: remCalculation(185);
+        padding: remCalculation(13) 0;
+        text-align: center;
+        @include fontCalculation($semibold, 25, 32, $sourceSansPro, #fff);
+        width: 50%;
+        display: block;
+        background: transparent;
+        @each $button-name,
+        $button-type in $color-set {
+            &[type="#{$button-name}"] {
+                background: transparent;
+                box-shadow: 0.3em 0.3em 0 0 $button-type, inset 0.3em 0.3em 0 0 $button-type;
+                color: $button-type;
+                @include animationPulse($button-type);
+                @include animationOffset($button-type);
+                &:active {
+                    background: darken($button-type, 30);
+                    color: #fff;
+                }
+            }
+        }
+    }
+    /*Animation*/
+}
