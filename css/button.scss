@@ -53,6 +53,52 @@
     }
 }
 
+button[animation="outline-slide"] {
+    overflow: hidden;
+    &:hover {
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            background: #fff;
+            position: absolute;
+            height: 2px;
+            width: 92%;
+        }
+        &::before {
+            top: 7%;
+            animation: outline-slide-before 2s infinite;
+            @keyframes outline-slide-before {
+                0% {
+                    left: 96%;
+                }
+                100% {
+                    left: 4%;
+                }
+            }
+        }
+        &::after {
+            bottom: 7%;
+            animation: outline-slide-after 2s infinite;
+            @keyframes outline-slide-after {
+                0% {
+                    right: 96%;
+                }
+                100% {
+                    right: 4%;
+                }
+            }
+        }
+    }
+}
+
+button[animation="outline"] {
+    &:hover {
+        outline: 2px solid #fff;
+        outline-offset: -6px;
+    }
+}
+
 button[animation="scale"] {
     &:hover {
         transform: scale(0.9);
@@ -81,14 +127,17 @@ button[animation="skew"] {
 }
 
 button {
+    position: relative;
     @each $button-name,
     $button-type in $color-set2 {
         &[type="#{$button-name}"] {
-            @include animationFill($button-type);
-            @include animationClose($button-type);
-            @include animationPulse($button-type);
-            @include animationRaise($button-type);
-            @include animationOffset($button-type);
+            &:hover {
+                @include animationFill($button-type);
+                @include animationClose($button-type);
+                @include animationPulse($button-type);
+                @include animationRaise($button-type);
+                @include animationOffset($button-type);
+            }
         }
     }
 }
@@ -112,7 +161,6 @@ button {
         $button-type in $color-set {
             &[type="#{$button-name}"] {
                 background: $button-type;
-                @include animationPulse($button-type);
                 &:hover {
                     background: darken($button-type, 10);
                 }
@@ -161,9 +209,6 @@ button {
                 border: 2px solid $button-type;
                 color: $button-type;
                 background: transparent;
-                @include animationFill($button-type);
-                @include animationClose($button-type);
-                @include animationRaise($button-type);
                 &:hover {
                     border: 2px solid darken($button-type, 10);
                 }
@@ -190,8 +235,6 @@ button {
                 background: transparent;
                 box-shadow: 0.3em 0.3em 0 0 $button-type, inset 0.3em 0.3em 0 0 $button-type;
                 color: $button-type;
-                @include animationPulse($button-type);
-                @include animationOffset($button-type);
                 &:active {
                     background: darken($button-type, 30);
                     color: #fff;
