@@ -53,6 +53,30 @@
     }
 }
 
+button[animation="viuv"] {
+    overflow: hidden;
+    &:hover {
+        &::after {
+            background: colorOpacity(#fff, 0.5);
+            content: '';
+            position: absolute;
+            width: 30%;
+            height: 500%;
+            top: -200%;
+            transform: rotate(45deg);
+            animation: viuv 1s infinite;
+            @keyframes viuv {
+                0% {
+                    left: -50%;
+                }
+                100% {
+                    left: 120%;
+                }
+            }
+        }
+    }
+}
+
 button[animation="outline-slide"] {
     overflow: hidden;
     &:hover {
