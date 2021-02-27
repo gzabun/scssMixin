@@ -1,0 +1,152 @@
+@charset "UTF-8";
+/* font-weight */
+/* font-weight */
+/* font-family */
+/* font-family */
+/*! mixin'e çevir
+
+.shadow-underline { 
+    display: inline;
+    box-shadow: inset 0 -1px white, inset 0 -2px green;
+    text-shadow: 1px 0 white, -1px 0 white;
+}
+
+https://codepen.io/gzabun/pen/vYyWKLj
+
+*/
+.container-fluid {
+  padding: 0;
+}
+
+.container-fluid .col-12.kapsayici {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: #405e89;
+}
+
+.container-fluid .col-12.kapsayici .col-3 {
+  width: 25%;
+  height: 100%;
+}
+
+.container-fluid .col-12.kapsayici .col-3 .dokuman {
+  font-weight: 600;
+  font-family: 'Roboto';
+  color: #fff;
+  font-size: 22px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.container-fluid .col-12.kapsayici .col-3 .dokuman:after {
+  display: block;
+  content: "";
+  width: 150px;
+  height: 2px;
+  background: #fff;
+  margin-top: 5px;
+}
+
+.container-fluid .col-12.kapsayici .col-3 > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  max-width: 25%;
+  left: 0;
+  padding-left: 20px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.container-fluid .col-12.kapsayici .col-3 > div a {
+  color: #fff;
+  text-decoration: none;
+  line-height: 2.25;
+}
+
+.container-fluid .col-12.kapsayici .col-9 {
+  padding: 20px 40px;
+  background: #c5c5c5;
+}
+
+.container-fluid .col-12.kapsayici .col-9 h4 {
+  font-family: 'Source Sans Pro';
+  color: #26295e;
+  font-size: 38px;
+  letter-spacing: -1.5px;
+}
+
+.container-fluid .col-12.kapsayici .col-9 .aciklama {
+  color: #405e89;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.container-fluid .col-12.kapsayici .col-9 .col-12.example-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.container-fluid .col-12.kapsayici .col-9 .col-12.example-area > pre {
+  width: calc(50% - 20px);
+  max-height: 21.875rem;
+  overflow-y: auto;
+  height: 21.875rem;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.container-fluid .col-12.kapsayici .col-9 .col-12.example-area > pre::-webkit-scrollbar {
+  width: 0.3125rem;
+  height: 0.3125rem;
+  background: #d8d8d8;
+  border-radius: 0.3125rem;
+}
+
+.container-fluid .col-12.kapsayici .col-9 .col-12.example-area > pre::-webkit-scrollbar-button {
+  display: none;
+}
+
+.container-fluid .col-12.kapsayici .col-9 .col-12.example-area > pre::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 0.3125rem;
+}
+
+.argument li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e35252;
+}
+
+.argument li p {
+  margin-bottom: 0;
+}
+
+/*sass --watch css/app.scss css/app.css*/
+/*# sourceMappingURL=app.css.map */
