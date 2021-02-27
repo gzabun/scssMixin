@@ -1,0 +1,29 @@
+<div id="css3-prefix">
+<h4>Css3 Prefix</h4>
+<div class="col-12 example-area">
+<div class="fl col-12 aciklama">
+$prop => property (box-sizing) , $value => (border-box)
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin css3-prefix($prop, $value) {
+	-webkit-#{$prop}: #{$value};
+	-moz-#{$prop}: #{$value};
+	-ms-#{$prop}: #{$value};
+	-o-#{$prop}: #{$value};
+	#{$prop}: #{$value};
+}
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{ 
+	@include css3-prefix(transition,3s) 
+} 
+.example{ 
+	-webkit-transition: 3s;
+	-moz-transition: 3s;
+	-ms-transition: 3s;
+	-o-transition: 3s;
+	transition: 3s; 
+}
+</code></pre>
+</div>
+</div>

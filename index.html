@@ -2,120 +2,458 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/app.css">
-    <style>
-        button,
-        .global-alert {
-            margin-left: 15px;
-            margin-bottom: 15px;
-        }
-        
-        h3 {
-            color: cadetblue;
-            font-family: 'Poppins';
-            font-weight: 400;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="prism.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/app.css">
+
 </head>
 
 <body>
-    <div class="global-alert-area">
-        <h3>Alert Set No.1</h3>
-        <div class="global-alert" mode="default" type="default"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="default" type="primary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="default" type="secondary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="default" type="success"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="default" type="danger"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="default" type="warning"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-    </div>
+<div class="container-fluid">
+	<div class="col-12 kapsayici">
+			<div class="col-3">
+				<div class="col-12">
+					<div class="col-12 dokuman">Dökümantasyon</div>
+					<a href="#css3-prefix">CSS3 Prefix</a>
+					<a href="#transition">transition</a>
+					<a href="#font-scale">media for font-size</a>
+					<a href="#link-colour">link colour</a>
+					<a href="#before-after">Before & After</a>
+					<a href="#font-set">Font Set</a>
+					<a href="#font-face">Font Face</a>
+					<a href="#font-face2">Font Face Final</a>
 
-    <div class="global-alert-area">
-        <h3>Alert Set No.2</h3>
-        <div class="global-alert" mode="border" type="default"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border" type="primary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border" type="secondary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border" type="success"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border" type="danger"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border" type="warning"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-    </div>
+				</div>
+			</div>
+			<div class="col-9">
+				<div id="css3-prefix">
 
-    <div class="global-alert-area">
-        <h3>Alert Set No.3</h3>
-        <div class="global-alert" mode="border-left" type="default"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left" type="primary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left" type="secondary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left" type="success"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left" type="danger"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left" type="warning"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-    </div>
+					<h4>Css3 Prefix</h4>
+					
 
-    <div class="global-alert-area">
-        <h3>Alert Set No.4</h3>
-        <div class="global-alert" mode="shadow" type="default"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="shadow" type="primary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="shadow" type="secondary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="shadow" type="success"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="shadow" type="danger"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="shadow" type="warning"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-    </div>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+	$prop => property (box-sizing) , $value => (border-box)
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin css3-prefix($prop, $value) {
+	-webkit-#{$prop}: #{$value};
+	-moz-#{$prop}: #{$value};
+	-ms-#{$prop}: #{$value};
+	-o-#{$prop}: #{$value};
+	#{$prop}: #{$value};
+}
+</code></pre>
 
-    <div class="global-alert-area">
-        <h3>Alert Set No.5</h3>
-        <div class="global-alert" mode="border-left2" type="default"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left2" type="primary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left2" type="secondary"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left2" type="success"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left2" type="danger"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-        <div class="global-alert" mode="border-left2" type="warning"><span>Bu bir uyarıdır.</span><i class="close"></i></div>
-    </div>
 
-    <div class="button-area">
-        <h3>Button Set No.1</h3>
-        <button mode="default" animation="scale" type="default">Scale</button>
-        <button mode="default" animation="skew" type="primary">Skew</button>
-        <button mode="default" animation="pulse" type="secondary">Pulse</button>
-        <button mode="default" animation="viuv" type="success">Pulse</button>
-        <button mode="default" type="danger" animation="outline"> Outline</button>
-        <button mode="default" animation="outline-slide" type="warning">Button</button>
-    </div>
+<pre class="langueage-css col-6"><code class="language-css">
+	.example{ 
+		@include css3-prefix(transition,3s) 
+	} 
+	.example{ 
+		-webkit-transition: 3s;
+		-moz-transition: 3s;
+		-ms-transition: 3s;
+		-o-transition: 3s;
+		transition: 3s; 
+	}
+</code></pre>
+</div>
+				</div>
 
-    <div class="button-area">
-        <h3>Button Set No.2</h3>
-        <button mode="oval" type="default">Button</button>
-        <button mode="oval" type="primary">Button</button>
-        <button mode="oval" type="secondary">Button</button>
-        <button mode="oval" type="success">Button</button>
-        <button mode="oval" type="danger">Button</button>
-        <button mode="oval" type="warning">Button</button>
-    </div>
+				<!--  -->
 
-    <div class="button-area">
-        <h3>Button Set No.3</h3>
-        <button mode="border" animation="fill" type="default">Fill</button>
-        <button mode="border" animation="raise" type="primary">Raise</button>
-        <button mode="border" animation="close" type="secondary">Button</button>
-        <button mode="border" type="success">Button</button>
-        <button mode="border" type="danger">Button</button>
-        <button mode="border" type="warning">Button</button>
-    </div>
+				<div id="transition">
 
-    <div class="button-area">
-        <h3>Button Set No.4</h3>
-        <button mode="offset" animation="fill" type="default">Fill</button>
-        <button mode="offset" animation="raise" type="primary">Raise</button>
-        <button mode="offset" animation="pulse" type="secondary">Pulse</button>
-        <button mode="offset" animation="offset" type="success">Offset</button>
-        <button mode="offset" type="danger">Button</button>
-        <button mode="offset" type="warning">Button</button>
-    </div>
+					<h4>Transition</h4>
+					
 
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+	$transition => transition value (1s)
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin transition($transition) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
+}
+</code></pre>
+
+
+<pre class="langueage-css col-6"><code class="language-css">
+.example{ 
+	@include transition(200ms) 
+} 
+.example{ 
+	-webkit-transition: 200ms;
+	-moz-transition: 200ms;
+	-ms-transition: 200ms;
+	-o-transition: 200ms;
+	transition: 200ms;
+}
+</code></pre>
+</div>
+				</div>
+<!--  -->
+				<div id="font-scale">
+
+					<h4>Media queries for font size</h4>
+					
+
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+	$max-width => maximum ekran ölçüsü , $min-break => minimum ekran ölçüsü , $break => kaç adet font size olacağını belirler
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin font-size-scale($max-width: 1366px, $min-break: 375px, $max: 6) {
+	html {
+		@for $i from 2 to $max {
+			@media(max-width: $max-width - ceil(($max-width - $min-break)/($max - $i))) {
+				font-size: 100% - ($i - 1)*6%;
+			}
+		}
+	}
+}
+</code></pre>
+
+
+<pre class="langueage-css col-6"><code class="language-css">
+
+@include font-size-scale(1920px,375px,8)
+
+@media (max-width: 1662px) {
+	html {
+	  font-size: 94%;
+	}
+  }
+  
+  @media (max-width: 1611px) {
+	html {
+	  font-size: 88%;
+	}
+  }
+  
+  @media (max-width: 1533px) {
+	html {
+	  font-size: 82%;
+	}
+  }
+  
+  @media (max-width: 1405px) {
+	html {
+	  font-size: 76%;
+	}
+  }
+  
+  @media (max-width: 1147px) {
+	html {
+	  font-size: 70%;
+	}
+  }
+  
+  @media (max-width: 375px) {
+	html {
+	  font-size: 64%;
+	}
+  }
+  
+</code></pre>
+</div>
+			</div>
+			<!--  -->
+
+<div id="link-colour">
+<h4>Link Colour</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$link => button rengi , $visited => :visited rengi , $hover => :focus ve :hover rengi , $active => :active rengi
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin link-colors($link, $visited, $hover, $active) {
+	color: $link;
+	&:visited {
+		color: $visited;
+	}
+	&:hover,
+	&:focus {
+		color: $hover;
+	}
+	&:active {
+		color: $active;
+	}
+}
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+button{
+	@include link-colors(#000,#fff,#b00000,#c5c5c5)
+}
+
+button {
+	color: #000;
+}
+  
+  button:visited {
+	color: #fff;
+}
+  
+  button:hover, button:focus {
+	color: #b00000;
+}
+  
+  button:active {
+	color: #c5c5c5;
+}
+</code></pre>
+</div>
+</div>
+<!--  -->
+
+<div id="before-after">
+<h4>Before & After</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$display => display (flex) varsayılan block , $content => after veya before content varsayılan ('')
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin before($display: block, $content: '') {
+	&:before {
+		display: $display;
+		content: $content;
+		@content;
+	}
+}
+
+@mixin after($display: block, $content: '') {
+	&:after {
+		display: $display;
+		content: $content;
+		@content;
+	}
+}
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+	@include after(inline-block,url(ex.svg)){
+		color:red;
+	}
+	
+	@include after(flex,attr(data-id)){
+		color:green;
+		width:20px;
+	}
+}
+
+.example:after {
+	display: inline-block;
+	content: url(ex.svg);
+	color: red;
+}
+  
+.example:after {
+	display: flex;
+	content: attr(data-id);
+	color: green;
+	width: 20px;
+}
+</code></pre>
+</div>
+</div>
+
+<!--  -->
+
+<div id="font-set">
+<h4>Font Set</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$name => font name , $url => font url (string olarak girilmesi gerekiyor) , $type => font type (.otf) *font-weight'leri font-set map'in den çekmektedir.
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+$font-set: ("light": 200, "regular": 400, "bold": 700, "black":900);
+@mixin font-set($name,$url,$type) {
+	@each $font-name,
+	$font-weight in $font-set {
+		@font-face {
+			font-family: $name;
+			src: url('#{$url}#{$font_weight}.#{$type}') format('opentype');
+			font-weight: $font_weight;
+			font-style: normal;
+		}
+	}
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+@include font-set(Nexa,'../nexa/Nexa',otf)
+
+@font-face {
+	font-family: Nexa;
+	src: url("../nexa/Nexa200.otf") format("opentype");
+	font-weight: 200;
+	font-style: normal;
+  }
+  
+  @font-face {
+	font-family: Nexa;
+	src: url("../nexa/Nexa400.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+  
+  @font-face {
+	font-family: Nexa;
+	src: url("../nexa/Nexa700.otf") format("opentype");
+	font-weight: 700;
+	font-style: normal;
+}
+  
+  @font-face {
+	font-family: Nexa;
+	src: url("../nexa/Nexa900.otf") format("opentype");
+	font-weight: 900;
+	font-style: normal;
+}
+</code></pre>
+</div>
+</div>
+
+<!--  -->
+
+<div id="font-face">
+<h4>Font Face</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$font-name => font ismi , $file-url => dosya yolu , $file-name => font dosyası ismi , $weight => font-weight varsayılan normal , $style => font-style varsayılan normal
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin font-face($font-name,$file-url,$file-name,$weight: normal,$style: normal) {
+	@font-face {
+		font-family: quote($font-name);
+		src: url($file-url + '/' + $file-name + '.eot');
+		src: url($file-url + '/' + $file-name + '.eot?#iefix') format('embedded-opentype'),
+		url($file-url + '/' + $file-name + '.woff') format('woff'),
+		url($file-url + '/' + $file-name + '.ttf') format('truetype'),
+		url($file-url + '/' + $file-name + '.svg##{$font-name}') format('svg');
+		font-weight: $weight;
+		font-style: $style;
+	}
+}
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+@include font-face(SFProDisplay,'../sf',SFPro,600,italic)
+
+@font-face {
+	font-family: "SFProDisplay";
+	src: url("../sf/SFPro.eot");
+	src: url("../sf/SFPro.eot?#iefix") format("embedded-opentype"), 
+		 url("../sf/SFPro.woff") format("woff"), 
+		 url("../sf/SFPro.ttf") format("truetype"), 
+		 url("../sf/SFPro.svg#SFProDisplay") format("svg");
+	font-weight: 600;
+	font-style: italic;
+}
+  
+</code></pre>
+</div>
+</div>
+
+<!--  -->
+
+<div id="font-face2">
+<h4>Font Face Final</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$font-name => font ismi , $file-url => dosya yolu , $file-name => font dosyası ismi , $style => font-style varsayılan normal diğerine ek olarak font weight ler
+font set mapinden gelmektedir.
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+$font-set: ("light": 200, "regular": 400, "bold": 700, "black":900);
+
+@mixin font-face($font-name,$file-url,$file-name,$style: normal) {
+	@each $font-name,
+	$font-weight in $font-set {
+		@font-face {
+			font-family: quote($font-name);
+			src: url($file-url + '/' + $file-name + '.eot');
+			src: url($file-url + '/' + $file-name + '.eot?#iefix') format('embedded-opentype'),
+			url($file-url + '/' + $file-name + '.woff') format('woff'),
+			url($file-url + '/' + $file-name + '.ttf') format('truetype'),
+			url($file-url + '/' + $file-name + '.svg##{$font-name}') format('svg');
+			font-weight: $font-weight;
+			font-style: $style;
+		}
+	}
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+@include font-face(SFProDisplay,'../sf',SFPro,600,italic)
+
+@font-face {
+	font-family: "light";
+	src: url("../sf/SFPro.eot");
+	src: url("../sf/SFPro.eot?#iefix") format("embedded-opentype"), 
+		 url("../sf/SFPro.woff") format("woff"), 
+		 url("../sf/SFPro.ttf") format("truetype"), 
+		 url("../sf/SFPro.svg#light") format("svg");
+	font-weight: 200;
+	font-style: italic;
+}
+  
+@font-face {
+	font-family: "regular";
+	src: url("../sf/SFPro.eot");
+	src: url("../sf/SFPro.eot?#iefix") format("embedded-opentype"), 
+		 url("../sf/SFPro.woff") format("woff"), 
+		 url("../sf/SFPro.ttf") format("truetype"), 
+		 url("../sf/SFPro.svg#regular") format("svg");
+	font-weight: 400;
+	font-style: italic;
+}
+  
+@font-face {
+	font-family: "bold";
+	src: url("../sf/SFPro.eot");
+	src: url("../sf/SFPro.eot?#iefix") format("embedded-opentype"), 
+		 url("../sf/SFPro.woff") format("woff"), 
+		 url("../sf/SFPro.ttf") format("truetype"), 
+		 url("../sf/SFPro.svg#bold") format("svg");
+	font-weight: 700;
+	font-style: italic;
+}
+  
+@font-face {
+	font-family: "black";
+	src: url("../sf/SFPro.eot");
+	src: url("../sf/SFPro.eot?#iefix") format("embedded-opentype"), 
+		 url("../sf/SFPro.woff") format("woff"), 
+		 url("../sf/SFPro.ttf") format("truetype"), 
+		 url("../sf/SFPro.svg#black") format("svg");
+	font-weight: 900;
+	font-style: italic;
+}
+  
+	
+</code></pre>
+</div>
+</div>
+
+<!--  -->
+
+
+
+				</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="prism.js"></script>
 </body>
 
 </html>

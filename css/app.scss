@@ -7,8 +7,6 @@ $semibold: 600;
 $medium: 500;
 $normal: 400;
 $light: 300;
-$color_set: ("default": #3E7BFA, "primary": #0063F7, "secondary": #00CFDE, "success": #06C270, "danger": #FF3B3B, "warning": #FF8800);
-$color_set2: ("default": #fecf6d, "primary": #4091d7, "secondary": #99e9eb, "success": #2d884d, "danger": #b34045, "warning": #fecf6d);
 
 /* font-weight */
 
@@ -23,7 +21,100 @@ $poppins: 'Poppins';
 
 @import 'function.scss';
 @import 'mixin.scss';
-@import 'alert.scss';
-@import 'button.scss';
+.container-fluid{
+    padding: 0;
+    .col-12.kapsayici {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        background: #405e89;
+
+        .col-3{
+           
+            width: 25%;
+            height: 100%;
+            
+            .dokuman{
+                font-weight: 600;
+                font-family: 'Roboto';
+                color: #fff;
+                font-size: 22px;
+                margin: 10px 0;
+                position: relative;
+                @include after{
+                    width: 150px;
+                    height: 2px;
+                    background: #fff;
+                    margin-top: 5px;
+                }
+            }
+            & > div {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            max-width: 25%;
+            left: 0;
+            padding-left: 20px;
+            max-height: 100vh;
+            overflow-y: auto;
+
+
+                a{
+                    color: #fff;
+                    text-decoration: none;
+                    line-height: 2.25;
+                }
+            }
+            
+        }
+        .col-9{
+            padding: 20px 40px;
+            background: #c5c5c5;
+
+            h4{
+                font-family: 'Source Sans Pro';
+                color: #26295e;
+                font-size: 38px;
+                letter-spacing: -1.5px;            
+            }
+            
+            .aciklama {
+                color: #405e89;
+                font-size: 22px;
+                margin-bottom: 10px;
+            }
+
+            .col-12.example-area {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-bottom: 40px;
+            }
+            
+            .col-12.example-area > pre {
+                width: calc(50% - 20px);
+                max-height: remCalculation(350);
+                overflow-y: auto;
+                height: remCalculation(350);
+                color: colorOpacity(#000,0.9);
+                @include scrollBarColor(5,5,5,#d8d8d8,#fff);
+            }
+        }
+    }
+}
+
+
+.argument li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e35252;
+    p {
+        margin-bottom: 0;
+    }
+}
+
 
 /*sass --watch css/app.scss css/app.css*/
