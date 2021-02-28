@@ -152,20 +152,7 @@ $border-radius:8px) {
     background: $background;
 }
 
-@mixin triple-borders($colorOne: #3C3C3C,
-$sizeOne:1px,
-$colorTwo: #999999,
-$sizeTwo:1px,
-$colorThree: #000000,
-$sizeThree:1px,
-$radius: 0) {
-    border: $sizeOne solid $colorOne;
-    box-sizing: border-box;
-    border-radius: $radius;
-    @include css3-prefix('box-shadow',
-    "0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}");
-    margin-left: $sizeThree;
-}
+
 
 @mixin double-borders($colorOne: #3C3C3C,
 $sizeOne:1px,
@@ -178,33 +165,6 @@ $radius: 0) {
     border-radius: $radius;
 }
 
-@mixin multicolor-gradient($direction,
-$colorList...) {
-    $max: length($colorList);
-    $w3cColors: '';
-    @if $direction=='top' {
-        $w3cColors: 'to bottom, ';
-    }
-    @else if $direction=='bottom' {
-        $w3cColors: 'to top, '
-    }
-    @else if $direction=='left' {
-        $w3cColors: 'to right, '
-    }
-    @else if $direction=='right' {
-        $w3cColors: 'to left, '
-    }
-    @else {
-        $w3cColors: '#{$direction}, ';
-    }
-    @for $i from 1 through $max {
-        $w3cColors: #{$w3cColors + nth($colorList, $i)};
-        @if $i < $max {
-            $w3cColors: #{$w3cColors + ", "};
-        }
-    }
-    background: linear-gradient($w3cColors);
-}
 
 @mixin truncate {
     white-space: nowrap;
@@ -212,12 +172,6 @@ $colorList...) {
     text-overflow: ellipsis;
 }
 
-@mixin dotTruncate($rowCount) {
-    display: -webkit-box;
-    -webkit-line-clamp: $rowCount;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
 
 @mixin lineClamp($line) {
     display: -webkit-box;
@@ -230,86 +184,59 @@ $colorList...) {
 @mixin background($width,
 $height,
 $url,
+$repeat:no-repeat,
 $horizantal:center,
 $vertical:center,
 $color:transparent,
 $display:inline-block) {
-    @if type_of($horizantal)==number and type_of($vertical)==number {
-        background: $color $url no-repeat $horizantal+#{'%'} $vertical+#{'%'};
-    }
-    @else if type_of($horizantal) !=number and type_of($vertical)==number {
-        background: $color $url no-repeat $horizantal $vertical+#{'%'};
-    }
-    @else if type_of($horizantal)==number and type_of($vertical) !=number {
-        background: $color $url no-repeat $horizantal+#{'%'} $vertical;
-    }
-    @else {
-        background: $color $url no-repeat $horizantal $vertical;
-    }
-    @if(type_of($width)==number) {
-        width: remCalculation($width);
-    }
-    @else {
-        width: $width;
-    }
-    @if(type_of($height)==number) {
-        height: remCalculation($height);
-    }
-    @else {
-        height: $height;
-    }
+    background: $color $url $repeat $horizantal $vertical;
+    width: $width;
+    height: $height;
     display: $display;
 }
 
-@mixin scrollBarColor($width:3,
-$height:3,
+
+@mixin scrollBarColor($width:3px,
+$height:3px,
 $radius:50%,
 $scColor:transparent,
 $thColor:#000) {
     &::-webkit-scrollbar {
-        width: remCalculation($width);
-        height: remCalculation($height);
+        width: $width;
+        height: $height;
         background: $scColor;
-        border-radius: remCalculation($radius);
+        border-radius: $radius;
     }
     &::-webkit-scrollbar-button {
         display: none;
     }
     &::-webkit-scrollbar-thumb {
         background: $thColor;
-        border-radius: remCalculation($radius);
+        border-radius: $radius;
     }
 }
 
-@mixin scrollBar {
-    &::-webkit-scrollbar {
-        width: remCalculation(5);
-        height: remCalculation(5);
-        background: #d3d3d3;
-        border-radius: remCalculation(5);
-    }
-    &::-webkit-scrollbar-button {
-        display: none;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.25);
-        border-radius: remCalculation(5);
-    }
-}
 
 @mixin fontCalculation($weight,
 $font-size,
 $line-height,
-$font-family,
-$color,
+$font-family:none,
+$color:transparent,
 $opacity:1) {
-    font: $weight $font-size/$globalRem*1rem #{'/'} $line-height/$globalRem*1rem $font-family;
-    @include colorOpacity($color,
-    $opacity)
+    font: $weight $font-size/$globalRem*1rem #{'/'} $line-height/$globalRem*1rem;
+    @if ($font-family != none){
+        font-family:$font-family;
+        
+    }
+    
+    @if ($color != transparent){
+        @include colorOpacity($color,$opacity);
+
+    }
+    
 }
 
-@mixin colorOpacity($color,
-$opacity:1) {
+@mixin colorOpacity($color,$opacity:1) {
     color: colorOpacity($color, $opacity);
 }
 
@@ -338,24 +265,6 @@ $color: #555) {
         border-right: $size solid transparent;
         border-bottom: $size solid $color;
     }
-}
-
-@mixin alert($background:#002281,
-$color:#fff) {
-    display: flex;
-    justify-content: space-between;
-    max-width: remCalculation(500);
-    padding: remCalculation(15) remCalculation(20);
-    box-sizing: border-box;
-    align-items: center;
-    @include fontCalculation($normal,
-    18,
-    24,
-    $roboto,
-    #fff);
-    color: $color;
-    border-radius: remCalculation(8);
-    background: $background;
 }
 
 @mixin borderImg($borderWidth,

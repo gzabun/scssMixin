@@ -29,7 +29,14 @@
 					<a href="#font-set">Font Set</a>
 					<a href="#font-face">Font Face</a>
 					<a href="#font-face2">Font Face Final</a>
-
+					<a href="#box-shadow">Box Shadow</a>
+					<a href="#alert">Alert</a>
+					<a href="#double-borders">double borders</a>
+					<a href="#truncate">Truncate</a>
+					<a href="#line-clamp">Line Clamp</a>
+					<a href="#background">Background</a>
+					<a href="#scrollbar">ScrollBar</a>
+					<a href="#font-calculation">Font Calculation</a>
 				</div>
 			</div>
 			<div class="col-9">
@@ -449,8 +456,338 @@ $font-set: ("light": 200, "regular": 400, "bold": 700, "black":900);
 
 <!--  -->
 
+<div id="box-shadow">
+<h4>Default box shadow</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$x => yatay , $y => dikey , $blur => bulanıklık değeri , $color => renk , $inset => inset durumu varsayılan olarak boş bir değer girilmedikçe 
+normal box shadow olarak ekler inset boş olmazsa box shadow'a inset value ekler *box shadow'u prefixleyerek vermektedir. 
+<a href="#css3-prefix"> css3 prefix </a> mixini içermektedir.
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin box-shadow($x: 2px,$y: 2px,$blur: 5px,$color: #000,$inset: "") {
+	@if ($inset !="") {
+		@include css3-prefix('box-shadow',
+		$inset $x $y $blur $color);
+	}
+	@else {
+		@include css3-prefix('box-shadow',
+		$x $y $blur $color);
+	}
+}
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+	@include box-shadow(2px,4px,5px,#e35252,inset)
+}
+
+.example{
+	-webkit-box-shadow: inset 2px 4px 5px #e35252;
+	-moz-box-shadow: inset 2px 4px 5px #e35252;
+	-ms-box-shadow: inset 2px 4px 5px #e35252;
+	-o-box-shadow: inset 2px 4px 5px #e35252;
+	box-shadow: inset 2px 4px 5px #e35252;
+}
+	
+</code></pre>
+</div>
+</div>
+
+<!--  -->
+
+<div id="alert">
+<h4>Alert Mixin</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$background => background rengi , $color => color , $border-radius => radius değeri
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin alert($background:#002281,$color:#fff,$border-radius:8px) {
+	display: flex;
+	justify-content: space-between;
+	max-width: 500px;
+	padding: 15px 20px;
+	box-sizing: border-box;
+	align-items: center;
+	font: 400 18px/24px "Roboto";
+	color: $color;
+	border-radius: $border-radius;
+	background: $background;
+}
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+	@include alert(#b00000,#fff,8px)
+}
+
+.example{
+	display: flex;
+	justify-content: space-between;
+	max-width: 500px;
+	padding: 15px 20px;
+	box-sizing: border-box;
+	align-items: center;
+	font: 400 18px/24px "Roboto";
+	color: #fff;
+	border-radius: 8px;
+	background: #b00000;
+}
+	
+</code></pre>
+</div>
+</div>
+
+<!--  -->
+	
+
+<div id="double-borders">
+<h4>Double Borders</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$colorOne => ilk border rengi , $sizeOne => ilk border kalınlığı , $colorTwo => ikinci border rengi , $sizeTwo => ikinci border kalınlığı ,
+$radius => border radius değeri
+<a href="#css3-prefix"> css3 prefix </a> mixini içermektedir.
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin double-borders($colorOne: #3C3C3C, $sizeOne:1px, $colorTwo: #999999,$sizeTwo:1px,$radius: 0) {
+	border: $sizeOne solid $colorOne;
+	@include css3-prefix('box-shadow',
+	0 0 0 $sizeTwo $colorTwo);
+	border-radius: $radius;
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+	@include double-borders(green,2px,#000,3px,8px)
+}
+
+.example{
+	border: 2px solid green;
+	-webkit-box-shadow: 0 0 0 3px #000;
+	-moz-box-shadow: 0 0 0 3px #000;
+	-ms-box-shadow: 0 0 0 3px #000;
+	-o-box-shadow: 0 0 0 3px #000;
+	box-shadow: 0 0 0 3px #000;
+	border-radius: 8px;
+}
+	
+</code></pre>
+</div>
+</div>
+
+<!--  -->
+
+<div id="truncate">
+<h4>Truncate</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+sadece @include truncate diyerek kullanılır
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+	@include truncate
+}
+
+.example{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+	
+</code></pre>
+</div>
+</div>
+
+<!--  -->
+
+<div id="line-clamp">
+<h4>Line Clamp</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$line => webkit-line-clamp -> satır sayısı 
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin lineClamp($line) {
+	display: -webkit-box;
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+	@include lineClamp(3)
+}
+
+.example{
+	display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+	
+</code></pre>
+</div>
+</div>
+
+<!--  -->
 
 
+<div id="background">
+<h4>Background</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$width => genişlik , $height => yükseklik , $url => url(ex.svg) ilgili img dosya yolu, $repeat => img tekrar value varsayılan no-repeat,
+$horizantal => img yatay konumu varsayılan center , $vertical => img dikey konumu varsayılan center , $color => varsa ek renk yoksa varsayılan transparent,
+$display => display property varsayılan inline-block
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin background($width,
+	$height,
+	$url,
+	$repeat:no-repeat,
+	$horizantal:center,
+	$vertical:center,
+	$color:transparent,
+	$display:inline-block) {
+		background: $color $url $repeat $horizantal $vertical;
+		width: $width;
+		height: $height;
+		display: $display;
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+	@include background(20px,20px,url(ex.svg),repeat-x,100vh,50%,transparent,flex)
+}
+
+.example{
+	background: transparent url(ex.svg) repeat-x 100vh 50%;
+	width: 20px;
+	height: 20px;
+	display: flex;
+}
+	
+</code></pre>
+</div>
+</div>
+
+<!--  -->
+
+
+<div id="scrollbar">
+<h4>Scroll Bar</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$height => yükseklik varsayılan 3px , $width => genişlik varsayılan 3px , $radius => radius değeri varsayılan %50,
+$scColor => scrollbar color varsayılan transparent , $thColor => thumb color varsayılan siyah
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin scrollBarColor($width:3px,
+	$height:3px,
+	$radius:50%,
+	$scColor:transparent,
+	$thColor:#000) {
+		&::-webkit-scrollbar {
+			width: $width;
+			height: $height;
+			background: $scColor;
+			border-radius: $radius;
+		}
+		&::-webkit-scrollbar-button {
+			display: none;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: $thColor;
+			border-radius: $radius;
+		}
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+    @include scrollBarColor(3px,3px,50%,red,green)
+}
+
+.example::-webkit-scrollbar {
+	width: 3px;
+	height: 3px;
+	background: red;
+	border-radius: 50%;
+}
+  
+.example::-webkit-scrollbar-button {
+	display: none;
+}
+  
+.example::-webkit-scrollbar-thumb {
+	background: green;
+	border-radius: 50%;
+}
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
+
+<div id="font-calculation">
+<h4>Font Calculation</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$weight => font-weight , $font-size => font-size , $line-height => line-height , $font-family => varsayılan değeri none herhangi birşey girerseniz
+kod'a ekleyecektir , $color => varsayılan transparenttir , $opacity varsayılan 1 dir girdiğiniz değere göre hesaplama yapar
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin fontCalculation($weight,
+	$font-size,
+	$line-height,
+	$font-family:none,
+	$color:transparent,
+	$opacity:1) {
+		font: $weight $font-size/$globalRem*1rem #{'/'} $line-height/$globalRem*1rem;
+		@if ($font-family != none){
+			font-family:$font-family;
+			
+		}
+		
+		@if ($color != transparent){
+			@include colorOpacity($color,$opacity);
+
+		}
+	
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+    @include fontCalculation(400,2,4,Nunito,#000,0.4)
+}
+
+.example{
+	font: 400 0.125rem / 0.25rem;
+	font-family: Nunito;
+	color: rgba(0,0,0,0.4);
+}
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
 				</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="prism.js"></script>
