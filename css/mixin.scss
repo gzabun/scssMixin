@@ -275,19 +275,12 @@ $mode) {
     border-image: $url $slice $mode
 }
 
-@mixin child-between($first,
-$last) {
-    &:nth-child(n+#{$first}):nth-child(-n+#{$last}) {
-        @content
-    }
-}
-
-@mixin closeIcon() {
+@mixin closeIcon($size,$width,$color,$opacity) {
     .close {
         position: relative;
-        width: 16px;
-        height: 16px;
-        opacity: 0.6;
+        width: $size;
+        height: $size;
+        opacity: $opacity;
         cursor: pointer;
     }
     .close:hover {
@@ -296,11 +289,11 @@ $last) {
     .close:before,
     .close:after {
         position: absolute;
-        left: 15px;
+        left: $size;
         content: ' ';
-        height: 16px;
-        width: 2px;
-        background-color: #333;
+        height: $size;
+        width: $width;
+        background-color: $color;
     }
     .close:before {
         transform: rotate(45deg);

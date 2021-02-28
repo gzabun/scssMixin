@@ -37,6 +37,14 @@
 					<a href="#background">Background</a>
 					<a href="#scrollbar">ScrollBar</a>
 					<a href="#font-calculation">Font Calculation</a>
+					<a href="#color-opacity">Color Opacity</a>
+					<a href="#arrow">Arrow</a>
+					<a href="#border-image">Border Image</a>
+					<a href="#close-icon">Close Icon</a>
+					<a href="#px-to-rem">Px to Rem</a>
+					<a href="#color-opacity-function">Color Opacity Function</a>
+
+					
 				</div>
 			</div>
 			<div class="col-9">
@@ -788,6 +796,260 @@ kod'a ekleyecektir , $color => varsayılan transparenttir , $opacity varsayılan
 </div>
 	
 <!--  -->
+
+
+<div id="color-opacity">
+<h4>Color Opacity</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$color => renk kodu , $opacity => opacity değeri 
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin colorOpacity($color,$opacity:1) {
+	color: colorOpacity($color, $opacity);
+}
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+    @include colorOpacity(#000,0.6)
+}
+
+.example{
+	color:rgba(0,0,0,0.6)
+}
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
+
+<div id="arrow">
+<h4>Arrow</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$direction: üçgen yönü default olarak down , diğer yönler right,left,up , $size => üçgen boyutu , $color => üçgen rengi 
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin arrow($direction: down,
+	$size: 5px,
+	$color: #555) {
+		width: 0;
+		height: 0;
+		@if ($direction==left) {
+			border-top: $size solid transparent;
+			border-bottom: $size solid transparent;
+			border-right: $size solid $color;
+		}
+		@else if ($direction==right) {
+			border-top: $size solid transparent;
+			border-bottom: $size solid transparent;
+			border-left: $size solid $color;
+		}
+		@else if ($direction==down) {
+			border-left: $size solid transparent;
+			border-right: $size solid transparent;
+			border-top: $size solid $color;
+		}
+		@else {
+			border-left: $size solid transparent;
+			border-right: $size solid transparent;
+			border-bottom: $size solid $color;
+		}
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+	@include arrow(up,20px,#000)
+}
+
+.example{
+	width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid #000;
+}
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
+
+<div id="border-image">
+<h4>Border Image</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$borderWidth: border genişliği , $url => border image dosya yolu , $slice => slice value(100) , $mode => border-mode (round) 
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin borderImg($borderWidth,
+	$url,
+	$slice,
+	$mode) {
+		border: $borderWidth solid transparent;
+		border-image: $url $slice $mode
+}
+	
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.example{
+	@include borderImg(4px,url(ex.svg),100,round)
+}
+
+.example{
+	border: 4px solid transparent;
+	border-image: url(ex.svg) 30 round;
+}
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
+
+<div id="close-icon">
+<h4>close icon</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$size: icon size, $width => icon kalınlığı , $color => icon rengi , $opacity => icon opacity 
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin closeIcon($size,$width,$color,$opacity) {
+	.close {
+		position: relative;
+		width: $size;
+		height: $size;
+		opacity: $opacity;
+		cursor: pointer;
+	}
+	.close:hover {
+		opacity: 1;
+	}
+	.close:before,
+	.close:after {
+		position: absolute;
+		left: $size;
+		content: ' ';
+		height: $size;
+		width: $width;
+		background-color: $color;
+	}
+	.close:before {
+		transform: rotate(45deg);
+	}
+	.close:after {
+		transform: rotate(-45deg);
+	}
+}
+	
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+@include closeIcon(30px,3px,#e35252,0.5)
+
+.close {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	opacity: 0.5;
+	cursor: pointer;
+}
+  
+.close:hover {
+	opacity: 1;
+}
+  
+.close:before,
+.close:after {
+	position: absolute;
+	left: 30px;
+	content: ' ';
+	height: 30px;
+	width: 3px;
+	background-color: #e35252;
+}
+  
+.close:before {
+	transform: rotate(45deg);
+}
+  
+.close:after {
+	transform: rotate(-45deg);
+}
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
+
+<div id="color-opacity-function">
+<h4>Color Opacity Function</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$color => renk değeri , $opacity => çevirilecek opacity değeri 
+</div>
+<pre class="langueage-css col-6"><code class="language-css">
+@function colorOpacity($color, $opacity:1) {
+	@return rgba($color, $opacity)
+};
+	
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.element{
+	color:colorOpacity(#b00000,0.8);
+}
+
+.element {
+	color: rgba(176, 0, 0, 0.8);
+}
+  
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
+
+
+<div id="px-to-rem">
+<h4>Px to Rem</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$pxValue: rem'e çevirelecek px değeri 
+</div>
+
+<pre class="langueage-css col-6"><code class="language-css">
+$globalRem : 16;
+@function remCalculation($pxValue) {
+	@return ($pxValue / $globalRem)  * 1rem
+}
+	
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.element{
+	font-size:remCalculation(25);
+}
+
+.element {
+	font-size: 1.5625rem;
+}
+  
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
+	
+	
+
 				</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="prism.js"></script>
