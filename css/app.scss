@@ -97,7 +97,7 @@ $poppins: 'Poppins';
                 overflow-y: auto;
                 height: remCalculation(350);
                 color: colorOpacity(#000,0.9);
-                @include scrollBarColor(5,5,5,#d8d8d8,#fff);
+                @include scrollBarColor(5px,5px,5px,#d8d8d8,#fff);
             }
         }
     }

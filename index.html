@@ -43,6 +43,8 @@
 					<a href="#close-icon">Close Icon</a>
 					<a href="#px-to-rem">Px to Rem</a>
 					<a href="#color-opacity-function">Color Opacity Function</a>
+					<a href="#chevron">Chevron</a>
+
 
 					
 				</div>
@@ -1041,6 +1043,65 @@ $globalRem : 16;
 	font-size: 1.5625rem;
 }
   
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
+
+
+<div id="chevron">
+<h4>Chevron</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$width => genişlik , $yükseklik => yükseklik , $thick => kalınlık , $color => renk , $rotation => yönü
+</div>
+
+<pre class="langueage-css col-6"><code class="language-css">
+@mixin chevron($width:10px,$height:10px,$thick:5px,$color:#000,$rotation:up){
+
+	&:before{
+		border-style: solid;
+		border-width: $thick $thick 0 0;
+		content: '';
+		display: inline-block;
+		height: $height;
+		width: $width;
+		@if ($rotation == up){
+		transform: rotate(-45deg);
+		} @else if ($rotation == 'right'){
+		transform: rotate(45deg);
+		} @else if ($rotation == 'left'){
+		transform: rotate(225deg);
+		} @else if ($rotation == 'down'){
+		transform: rotate(-225deg);
+		}
+		
+		@content;
+	}
+	
+	}
+	
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.chevron{
+	@include chevron(20px,20px,2px,#000,left);
+}
+
+.chevron:before {
+	border-style: solid;
+	border-width: 2px 2px 0 0;
+	content: '';
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	transform: rotate(225deg);
+	background: red;
+}
+
+	
 	
 </code></pre>
 </div>

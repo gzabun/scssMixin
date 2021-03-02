@@ -114,10 +114,10 @@ https://codepen.io/gzabun/pen/vYyWKLj
 }
 
 .container-fluid .col-12.kapsayici .col-9 .col-12.example-area > pre::-webkit-scrollbar {
-  width: 0.3125rem;
-  height: 0.3125rem;
+  width: 5px;
+  height: 5px;
   background: #d8d8d8;
-  border-radius: 0.3125rem;
+  border-radius: 5px;
 }
 
 .container-fluid .col-12.kapsayici .col-9 .col-12.example-area > pre::-webkit-scrollbar-button {
@@ -126,7 +126,7 @@ https://codepen.io/gzabun/pen/vYyWKLj
 
 .container-fluid .col-12.kapsayici .col-9 .col-12.example-area > pre::-webkit-scrollbar-thumb {
   background: #fff;
-  border-radius: 0.3125rem;
+  border-radius: 5px;
 }
 
 .argument li {

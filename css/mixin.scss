@@ -303,6 +303,30 @@ $mode) {
     }
 }
 
+@mixin chevron($width:10px,$height:10px,$thick:5px,$color:#000,$rotation:up){
+ 
+    &:before{
+      border-style: solid;
+      border-width: $thick $thick 0 0;
+      content: '';
+      display: inline-block;
+      height: $height;
+      width: $width;
+      @if ($rotation == up){
+        transform: rotate(-45deg);
+      } @else if ($rotation == 'right'){
+        transform: rotate(45deg);
+      } @else if ($rotation == 'left'){
+        transform: rotate(225deg);
+      } @else if ($rotation == 'down'){
+        transform: rotate(-225deg);
+      }
+     
+      @content;
+    }
+  
+}
+
 
 /*! mixin'e çevir
 
