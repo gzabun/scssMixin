@@ -5,3 +5,33 @@
 @function colorOpacity($color, $opacity:1) {
     @return rgba($color, $opacity)
 };
+
+
+@function colorRandom($r,$g,$b,$a){ //arayüze ekle
+    $red:null;
+    $green:null;
+    $blue:null;
+    
+    @if ($r >255){
+        $red:random($limit:255);
+    } @else {
+        $red:random($r);
+    }
+    
+    @if ($g >255){
+        $green:random($limit:255);
+    } @else {
+        $green:random($g);
+    }
+    
+    @if ($b > 255){
+        $blue:random($limit:255);
+    } @else {
+        $blue:random($b);
+    }
+    
+    
+    @return grba($red,$green,$blue,$a);
+
+    
+};

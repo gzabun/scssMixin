@@ -44,6 +44,7 @@
 					<a href="#px-to-rem">Px to Rem</a>
 					<a href="#color-opacity-function">Color Opacity Function</a>
 					<a href="#chevron">Chevron</a>
+					<a href="#random-color">Random Color Function</a>
 
 
 					
@@ -1108,8 +1109,64 @@ $width => genişlik , $yükseklik => yükseklik , $thick => kalınlık , $color 
 </div>
 	
 <!--  -->
+
+
+<div id="random-color">
+<h4>Random Color Function</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$r => red , $g => green , $b => blue , $a => alpha(opacity) 
+</div>
+
+<pre class="langueage-css col-6"><code class="language-css">
+
+@function colorRandom($r,$g,$b,$a){
+	$red:null;
+	$green:null;
+	$blue:null;
+	
+	@if ($r >255){
+		$red:random($limit:255);
+	} @else {
+		$red:random($r);
+	}
+	
+	@if ($g >255){
+		$green:random($limit:255);
+	} @else {
+		$green:random($g);
+	}
+	
+	@if ($b > 255){
+		$blue:random($limit:255);
+	} @else {
+		$blue:random($b);
+	}
 	
 	
+	@return grba($red,$green,$blue,$a);
+
+	
+}
+	
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+
+.element{
+	color:colorRandom(900,222,78,1);
+}
+	
+.element {
+  color: grba(246, 41, 28, 1);
+}
+	
+	
+</code></pre>
+</div>
+</div>
+	
+<!--  -->
 
 				</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
