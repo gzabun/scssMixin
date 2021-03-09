@@ -45,6 +45,13 @@
 					<a href="#color-opacity-function">Color Opacity Function</a>
 					<a href="#chevron">Chevron</a>
 					<a href="#random-color">Random Color Function</a>
+					<a href="#text-border">Text Border</a>
+					<a href="#color-palette">Renk Paleti</a>
+					<a href="#color-palettes">Renk Paleti (Çoklu)</a>
+					<a href="#multiple-text-underline">2'li text underline</a>
+
+
+
 
 
 					
@@ -1168,7 +1175,328 @@ $r => red , $g => green , $b => blue , $a => alpha(opacity)
 	
 <!--  -->
 
-				</div>
+
+<div id="text-border">
+<h4>Text Border</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$textColor => text color (text fill color) , $borderColor => border color (text-stroke-color) , $width => genişliği (text-stroke-width) 
+</div>
+
+<pre class="langueage-css col-6"><code class="language-css">
+
+@mixin text-border($textColor,$borderColor,$width){
+	-webkit-text-fill-color: $textColor;
+	-webkit-text-stroke-color: $borderColor;
+	-webkit-text-stroke-width: $width;
+}
+	
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+
+@mixin text-border(#ecc3c5,#545454,1px);
+	
+.element {
+	-webkit-text-fill-color: #ecc3c5;
+    -webkit-text-stroke-color: #545454;
+    -webkit-text-stroke-width: 1px;
+}
+	
+	
+</code></pre>
+</div>
+</div>
+<!--  -->
+
+<div id="color-palette">
+<h4>Renk Paleti</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$color => renk 
+</div>
+
+<pre class="langueage-css col-6"><code class="language-css">
+
+@mixin colorPalette($color){
+	:root{     
+		
+		@for $i from 1 through 4{
+		--color-darken-#{$i * 10}: darken($color,$i * 10deg);
+		}
+		
+		@for $i from 1 through 4{
+		--color-lighten-#{$i * 10}: lighten($color,$i * 10deg);
+		}
+		
+		@for $i from 1 through 4{
+		--color-adjust-hue-#{$i * 10}: adjust-hue($color,$i * -10deg);
+		}
+		
+		@for $i from 1 through 4{
+		--color-adjust-minus-hue-#{$i * 10}: adjust-hue($color,$i * 10deg);
+		}
+		
+		@for $i from 1 through 4{
+		--color-saturate-#{$i * 10}: saturate($color,$i * 10deg);
+		}
+		
+		@for $i from 1 through 4{
+		--color-desaturate-#{$i * 10}: desaturate($color,$i * 10deg);
+		}
+		
+		@for $i from 1 through 4{
+		--color-adjust-color-#{$i * 10}: adjust-color($color,$i * 10deg);
+		}
+		
+		@for $i from 1 through 10{
+		--color-change-color-#{$i * 10}: change-color($color,$i * 10deg);
+		}
+		
+		--color-invert: invert($color);
+		--color-complement: complement($color);
+		--color-grayscale: grayscale($color);
+
+	}
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+
+@include colorPalette(#e35252)
+	
+:root {
+	--color-darken-10: #dc2626;
+	--color-darken-20: #b21d1d;
+	--color-darken-30: #861616;
+	--color-darken-40: #5a0f0f;
+	--color-lighten-10: #ea7e7e;
+	--color-lighten-20: #f1aaaa;
+	--color-lighten-30: #f8d6d6;
+	--color-lighten-40: white;
+	--color-adjust-hue-10: #e3526a;
+	--color-adjust-hue-20: #e35282;
+	--color-adjust-hue-30: #e3529b;
+	--color-adjust-hue-40: #e352b3;
+	--color-adjust-minus-hue-10: #e36a52;
+	--color-adjust-minus-hue-20: #e38252;
+	--color-adjust-minus-hue-30: #e39b52;
+	--color-adjust-minus-hue-40: #e3b352;
+	--color-saturate-10: #ed4848;
+	--color-saturate-20: #f73e3e;
+	--color-saturate-30: #ff3636;
+	--color-saturate-40: #ff3636;
+	--color-desaturate-10: #d95c5c;
+	--color-desaturate-20: #cf6666;
+	--color-desaturate-30: #c57070;
+	--color-desaturate-40: #bb7a7a;
+	--color-adjust-color-10: #ed5252;
+	--color-adjust-color-20: #f75252;
+	--color-adjust-color-30: #ff5252;
+	--color-adjust-color-40: #ff5252;
+	--color-change-color-10: #0a5252;
+	--color-change-color-20: #145252;
+	--color-change-color-30: #1e5252;
+	--color-change-color-40: #285252;
+	--color-change-color-50: #325252;
+	--color-change-color-60: #3c5252;
+	--color-change-color-70: #465252;
+	--color-change-color-80: #505252;
+	--color-change-color-90: #5a5252;
+	--color-change-color-100: #645252;
+	--color-invert-10: #1cadad;
+	--color-invert-20: #1cadad;
+	--color-complement: #52e3e3;
+	--color-grayscale: #9b9b9b;
+}
+  
+	
+	
+</code></pre>
+</div>
+</div>
+<!--  -->
+
+
+<div id="color-palettes">
+<h4>Renk Paleti</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$color... => birden fazla renk girebilirsiniz. 
+</div>
+
+<pre class="langueage-css col-6"><code class="language-css">
+
+@mixin colorPalette($color...){
+
+	:root{     
+	
+
+		@each $single in $color{
+			
+			@for $i from 1 through 4{
+				--color-darken-#{$i * 10}: darken($single,$i * 10deg);
+			}
+		
+			@for $i from 1 through 4{
+				--color-lighten-#{$i * 10}: lighten($single,$i * 10deg);
+			}
+			
+			@for $i from 1 through 4{
+				--color-adjust-hue-#{$i * 10}: adjust-hue($single,$i * -10deg);
+			}
+			
+			@for $i from 1 through 4{
+				--color-adjust-minus-hue-#{$i * 10}: adjust-hue($single,$i * 10deg);
+			}
+			
+			@for $i from 1 through 4{
+				--color-saturate-#{$i * 10}: saturate($single,$i * 10deg);
+			}
+			
+			@for $i from 1 through 4{
+				--color-desaturate-#{$i * 10}: desaturate($single,$i * 10deg);
+			}
+			
+			@for $i from 1 through 4{
+				--color-adjust-color-#{$i * 10}: adjust-color($single,$i * 10deg);
+			}
+			
+			@for $i from 1 through 10{
+				--color-change-color-#{$i * 10}: change-color($single,$i * 10deg);
+			}
+				
+		}       
+
+	}
+}
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+
+@include colorPalettes(#e35252,#bb0)
+	
+:root {
+	--color-darken-10: #dc2626;
+	--color-darken-20: #b21d1d;
+	--color-darken-30: #861616;
+	--color-darken-40: #5a0f0f;
+	--color-lighten-10: #ea7e7e;
+	--color-lighten-20: #f1aaaa;
+	--color-lighten-30: #f8d6d6;
+	--color-lighten-40: white;
+	--color-adjust-hue-10: #e3526a;
+	--color-adjust-hue-20: #e35282;
+	--color-adjust-hue-30: #e3529b;
+	--color-adjust-hue-40: #e352b3;
+	--color-adjust-minus-hue-10: #e36a52;
+	--color-adjust-minus-hue-20: #e38252;
+	--color-adjust-minus-hue-30: #e39b52;
+	--color-adjust-minus-hue-40: #e3b352;
+	--color-saturate-10: #ed4848;
+	--color-saturate-20: #f73e3e;
+	--color-saturate-30: #ff3636;
+	--color-saturate-40: #ff3636;
+	--color-desaturate-10: #d95c5c;
+	--color-desaturate-20: #cf6666;
+	--color-desaturate-30: #c57070;
+	--color-desaturate-40: #bb7a7a;
+	--color-adjust-color-10: #ed5252;
+	--color-adjust-color-20: #f75252;
+	--color-adjust-color-30: #ff5252;
+	--color-adjust-color-40: #ff5252;
+	--color-change-color-10: #0a5252;
+	--color-change-color-20: #145252;
+	--color-change-color-30: #1e5252;
+	--color-change-color-40: #285252;
+	--color-change-color-50: #325252;
+	--color-change-color-60: #3c5252;
+	--color-change-color-70: #465252;
+	--color-change-color-80: #505252;
+	--color-change-color-90: #5a5252;
+	--color-change-color-100: #645252;
+	--color-darken-10: #888800;
+	--color-darken-20: #555500;
+	--color-darken-30: #222200;
+	--color-darken-40: black;
+	--color-lighten-10: #eeee00;
+	--color-lighten-20: #ffff22;
+	--color-lighten-30: #ffff55;
+	--color-lighten-40: #ffff88;
+	--color-adjust-hue-10: #bb9c00;
+	--color-adjust-hue-20: #bb7d00;
+	--color-adjust-hue-30: #bb5e00;
+	--color-adjust-hue-40: #bb3e00;
+	--color-adjust-minus-hue-10: #9cbb00;
+	--color-adjust-minus-hue-20: #7dbb00;
+	--color-adjust-minus-hue-30: #5ebb00;
+	--color-adjust-minus-hue-40: #3ebb00;
+	--color-saturate-10: #bbbb00;
+	--color-saturate-20: #bbbb00;
+	--color-saturate-30: #bbbb00;
+	--color-saturate-40: #bbbb00;
+	--color-desaturate-10: #b2b209;
+	--color-desaturate-20: #a8a813;
+	--color-desaturate-30: #9f9f1c;
+	--color-desaturate-40: #969625;
+	--color-adjust-color-10: #c5bb00;
+	--color-adjust-color-20: #cfbb00;
+	--color-adjust-color-30: #d9bb00;
+	--color-adjust-color-40: #e3bb00;
+	--color-change-color-10: #0abb00;
+	--color-change-color-20: #14bb00;
+	--color-change-color-30: #1ebb00;
+	--color-change-color-40: #28bb00;
+	--color-change-color-50: #32bb00;
+	--color-change-color-60: #3cbb00;
+	--color-change-color-70: #46bb00;
+	--color-change-color-80: #50bb00;
+	--color-change-color-90: #5abb00;
+	--color-change-color-100: #64bb00;
+}
+  
+	
+	
+	
+</code></pre>
+</div>
+</div>
+<!--  -->
+
+
+<div id="multiple-text-underline">
+<h4>Multiple Text Underline</h4>
+<div class="col-12 example-area">
+<div class="col-12 aciklama">
+$firstColor => ilk renk , $secondColor => ikinci renk 
+</div>
+
+<pre class="langueage-css col-6"><code class="language-css">
+
+@mixin multiple-text-underline($firstColor,$secondColor) { 
+	box-shadow: inset 0 -1px $firstColor, inset 0 -2px $secondColor;
+}
+	
+	
+</code></pre>
+<pre class="langueage-css col-6"><code class="language-css">
+.element{
+	@include multiple-text-underline(#E32838,#5F8B9E)	
+}
+
+.element {
+	box-shadow: inset 0 -1px #E32838, inset 0 -2px #5F8B9E;
+}
+	
+	
+	
+	
+</code></pre>
+</div>
+</div>
+<!--  -->
+
+	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="prism.js"></script>
 </body>

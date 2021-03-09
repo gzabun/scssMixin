@@ -327,14 +327,165 @@ $mode) {
   
 }
 
-/*! mixin'e çevir
-
-.shadow-underline { 
-    display: inline;
-    box-shadow: inset 0 -1px white, inset 0 -2px green;
-    text-shadow: 1px 0 white, -1px 0 white;
+@mixin text-border($textColor,$borderColor,$width){
+    -webkit-text-fill-color: $textColor;
+    -webkit-text-stroke-color: $borderColor;
+    -webkit-text-stroke-width: $width;
 }
 
-https://codepen.io/gzabun/pen/vYyWKLj
 
-*/
+@mixin colorPalette($color){
+    :root{     
+        
+        @for $i from 1 through 4{
+        --color-darken-#{$i * 10}: darken($color,$i * 10deg);
+        }
+        
+        @for $i from 1 through 4{
+        --color-lighten-#{$i * 10}: lighten($color,$i * 10deg);
+        }
+        
+        @for $i from 1 through 4{
+        --color-adjust-hue-#{$i * 10}: adjust-hue($color,$i * -10deg);
+        }
+        
+        @for $i from 1 through 4{
+        --color-adjust-minus-hue-#{$i * 10}: adjust-hue($color,$i * 10deg);
+        }
+        
+        @for $i from 1 through 4{
+        --color-saturate-#{$i * 10}: saturate($color,$i * 10deg);
+        }
+        
+        @for $i from 1 through 4{
+        --color-desaturate-#{$i * 10}: desaturate($color,$i * 10deg);
+        }
+        
+        @for $i from 1 through 4{
+        --color-adjust-color-#{$i * 10}: adjust-color($color,$i * 10deg);
+        }
+        
+        @for $i from 1 through 10{
+        --color-change-color-#{$i * 10}: change-color($color,$i * 10deg);
+        }
+        
+        --color-invert: invert($color);
+        --color-complement: complement($color);
+        --color-grayscale: grayscale($color);
+
+    }
+}
+
+
+@mixin colorPalettes($color...){
+  
+    :root{     
+ 
+
+        @each $single in $color{
+            
+            @for $i from 1 through 4{
+                --color-darken-#{$i * 10}: darken($single,$i * 10deg);
+            }
+        
+            @for $i from 1 through 4{
+                --color-lighten-#{$i * 10}: lighten($single,$i * 10deg);
+            }
+            
+            @for $i from 1 through 4{
+                --color-adjust-hue-#{$i * 10}: adjust-hue($single,$i * -10deg);
+            }
+            
+            @for $i from 1 through 4{
+                --color-adjust-minus-hue-#{$i * 10}: adjust-hue($single,$i * 10deg);
+            }
+            
+            @for $i from 1 through 4{
+                --color-saturate-#{$i * 10}: saturate($single,$i * 10deg);
+            }
+            
+            @for $i from 1 through 4{
+                --color-desaturate-#{$i * 10}: desaturate($single,$i * 10deg);
+            }
+            
+            @for $i from 1 through 4{
+                --color-adjust-color-#{$i * 10}: adjust-color($single,$i * 10deg);
+            }
+            
+            @for $i from 1 through 10{
+                --color-change-color-#{$i * 10}: change-color($single,$i * 10deg);
+            }
+                
+        }       
+
+    }
+}
+
+@mixin multiple-text-underline($firstColor,$secondColor) { 
+    box-shadow: inset 0 -1px $firstColor, inset 0 -2px $secondColor;
+}
+
+/**/
+@mixin media-bp($sum1,$width,$sum2:null,$width2:null){
+    @if ($sum2 != null or $width2 != null){
+        @media screen and(#{$sum1}-width: $width) and (#{$sum2}-width: $width2){
+            @content
+        }
+    } @else {
+        @media screen and(#{$sum1}-width: $width){
+            @content
+        }
+    }
+    
+}
+
+@include maxWidth(min,768px,max,1500px){
+    color:red;
+}
+
+@mixin size($width,$height:null){
+    @if ($height != null){
+        width:$width;
+        height:$height;
+    } @else {
+        width:$width;
+        height:$width;
+    }
+}
+
+@include size(10px,60px);
+
+@mixin screen-mode($mode){
+    @if ($mode != dark){
+        @media (prefers-color-scheme: light){
+            @content
+        }
+    } @else {
+        @media (prefers-color-scheme: dark){
+            @content
+        }
+    }
+}
+
+
+@include screen-mode(light){
+    color:red;
+}
+
+@mixin media-bp-orientaion($sum1,$width,$orientation:null,$width2:null){
+    @if ($width2 != null){
+        @media screen and(min-width: $width) and (max-width: $width2) and (orientation: #{$orientation}){
+            @content
+        }
+    } @else {
+        @media screen and(#{$sum1}-width: $width) and (orientation: #{$orientation}){
+            @content
+        }
+    }
+    
+}
+
+
+@include media-bp-orientaion(min,25em,portrait,45em){
+    color:red;
+}
