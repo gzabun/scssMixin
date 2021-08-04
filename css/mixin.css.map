@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": ";AA6aA;;;;;;EAME",
+    "mappings": "AA2aA,IAAI",
     "sources": [
         "mixin.scss"
     ],

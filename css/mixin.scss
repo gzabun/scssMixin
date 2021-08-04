@@ -188,11 +188,17 @@ $repeat:no-repeat,
 $horizantal:center,
 $vertical:center,
 $color:transparent,
-$display:inline-block) {
+$display:inline-block,
+$bgSize:null) {
     background: $color $url $repeat $horizantal $vertical;
     width: $width;
     height: $height;
     display: $display;
+    @if ($bgSize != null){
+        background-size: $width;
+    } @else {
+        background: $bgSize;
+    }
 }
 
 
@@ -439,7 +445,7 @@ $mode) {
     
 }
 
-@include maxWidth(min,768px,max,1500px){
+@include media-bp(min,768px,max,1500px){
     color:red;
 }
 
@@ -482,7 +488,6 @@ $mode) {
             @content
         }
     }
-    
 }
 
 

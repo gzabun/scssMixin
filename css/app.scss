@@ -98,6 +98,9 @@ $poppins: 'Poppins';
                 height: remCalculation(350);
                 color: colorOpacity(#000,0.9);
                 @include scrollBarColor(5px,5px,5px,#d8d8d8,#fff);
+                background: url(./code-bg.png) no-repeat center center;
+                background-size: 100% 100%;
+
             }
         }
     }
@@ -115,6 +118,7 @@ $poppins: 'Poppins';
         margin-bottom: 0;
     }
 }
+
 
 
 /*sass --watch css/app.scss css/app.css*/
